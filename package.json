@@ -1,0 +1,17 @@
+{
+  "name": "textitrace-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "node server/index.js",
+    "dev:server": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

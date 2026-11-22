@@ -1,0 +1,4 @@
+node_modules/
+client/dist/
+server/textitrace.sqlite
+*.log
