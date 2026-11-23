@@ -9,9 +9,13 @@
   "scripts": {
     "build": "cd client && npm install && npm run build",
     "start": "node server/index.js",
-    "dev:server": "node server/index.js"
+    "dev:server": "node server/index.js",
+    "bench": "node benchmark/bench.cjs"
   },
   "dependencies": {
     "express": "^4.22.3"
+  },
+  "devDependencies": {
+    "autocannon": "^9.0.0"
   }
 }
