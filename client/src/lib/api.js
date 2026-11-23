@@ -26,4 +26,6 @@ export const api = {
   mezclar: (body) => request('/lotes/mezclar', { method: 'POST', body: JSON.stringify(body) }),
   historial: (id) => request(`/lotes/${id}/historial`),
   dashboard: () => request('/dashboard'),
+  categoriasExport: () => request('/export/categorias'),
+  exportGeojson: () => request('/export?formato=geojson'),
 };

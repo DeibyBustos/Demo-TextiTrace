@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { DashboardLayout } from '../Layout.jsx';
 import { api } from '../lib/api.js';
+import { Link } from 'react-router-dom';
+import DescargaDatos from '../components/DescargaDatos.jsx';
 
 export default function Dashboard() {
   const [d, setD] = useState(null);
@@ -58,8 +60,13 @@ export default function Dashboard() {
             <div className="pt-row" key={p.punto}><span>{p.punto}</span><strong>{p.kg} kg</strong></div>
           ))}
           {d.porPunto.length === 0 && <span style={{ fontSize: 12.5, color: 'var(--muted)' }}>Sin datos todavía.</span>}
+          <Link className="btn btn-secondary" to="/dashboard/mapa" style={{ marginTop: 'auto', textAlign: 'center', textDecoration: 'none' }}>
+            Ver en el mapa
+          </Link>
         </div>
       </div>
+
+      <DescargaDatos />
     </DashboardLayout>
   );
 }

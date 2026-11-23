@@ -9,7 +9,7 @@ export const router = Router();
 const DISCREPANCIA_UMBRAL_PCT = 5;
 const TOLERANCIA_KG = 0.01;
 
-function serializeLote(l) {
+export function serializeLote(l) {
   if (!l) return null;
   return {
     id: l.id,
@@ -167,7 +167,7 @@ router.get('/traspasos', (req, res) => {
 router.get('/traspasos/:id', (req, res) => {
   const t = db.prepare(`SELECT * FROM traspasos WHERE id = ?`).get(req.params.id);
   if (!t) return res.status(404).json({ error: 'Traspaso no encontrado' });
-  res.json(serializeTraspaso(t));
+  res.json({ ...serializeTraspaso(t), lote: serializeLote(getLote(t.lote_id)) });
 });
 
 // ---------- Traspasos (paso 2: receptor acepta/rechaza) ----------
