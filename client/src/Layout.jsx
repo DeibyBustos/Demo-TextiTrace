@@ -25,16 +25,20 @@ export function PhoneLayout({ title, subtitle, children }) {
   );
 }
 
-export function DashboardLayout({ children }) {
+export function DashboardLayout({ children, title = 'Panel de indicadores', subtitle, back, actions }) {
   const navigate = useNavigate();
   return (
     <div className="app-shell wide">
       <div className="topnav">
         <div>
-          <h1>Panel de indicadores</h1>
-          <p>TextiTrace · Vista de solo lectura · Rol: Entidad (SDA / ANDI)</p>
+          <h1>{title}</h1>
+          <p>{subtitle || 'TextiTrace · Vista de solo lectura · Rol: Entidad (SDA / ANDI)'}</p>
         </div>
-        <button className="linklike" onClick={() => navigate('/')}>Cambiar rol</button>
+        <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+          {actions}
+          {back && <button className="linklike" onClick={() => navigate(back)}>← Volver al panel</button>}
+          <button className="linklike" onClick={() => navigate('/')}>Cambiar rol</button>
+        </div>
       </div>
       <div className="dash-body">{children}</div>
     </div>

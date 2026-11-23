@@ -12,6 +12,7 @@ import Dividir from './pages/Dividir.jsx';
 import Mezclar from './pages/Mezclar.jsx';
 import Historial from './pages/Historial.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import Mapa from './pages/Mapa.jsx';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/mezclar" element={<Mezclar />} />
         <Route path="/lotes/:loteId/historial" element={<Historial />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/mapa" element={<Mapa />} />
       </Routes>
     </RoleProvider>
   );
