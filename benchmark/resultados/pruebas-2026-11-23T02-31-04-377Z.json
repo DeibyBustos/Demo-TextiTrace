@@ -1,0 +1,57 @@
+{
+  "HOST": "http://localhost:3000",
+  "API": "/api",
+  "fecha": "2026-11-23T02:31:04.379Z",
+  "node": "v24.2.0",
+  "filas": [
+    {
+      "Id": "E1",
+      "Escenario": "Dividir 100 kg en 60 kg y 38 kg con 2 kg de merma",
+      "Resultado esperado": "Padre cerrado; dos hijos con QR propio y enlazados al padre",
+      "Resultado obtenido": "Padre dividido; hijos L-6021 (60 kg) y L-6022 (38 kg); enlazados al padre",
+      "Resultado": "Pasa"
+    },
+    {
+      "Id": "E2",
+      "Escenario": "Dividir 100 kg en 60 kg y 45 kg",
+      "Resultado esperado": "El sistema rechaza la operacion por balance de masa",
+      "Resultado obtenido": "Respuesta 400 (balance_de_masa_invalido); lotes antes/despues: 6023/6023; padre clasificado con 100 kg",
+      "Resultado": "Pasa"
+    },
+    {
+      "Id": "E3",
+      "Escenario": "Mezclar un lote de 38 kg con otro de 30 kg, misma ruta",
+      "Resultado esperado": "Lote nuevo de 68 kg con los aportes de cada origen",
+      "Resultado obtenido": "Lote L-6026 de 68 kg; aportes 30 y 38 kg; origenes mezclado/mezclado",
+      "Resultado": "Pasa"
+    },
+    {
+      "Id": "E4",
+      "Escenario": "Mezclar dos lotes con rutas de aprovechamiento distintas",
+      "Resultado esperado": "El sistema rechaza la mezcla",
+      "Resultado obtenido": "Respuesta 400 (ruta_incompatible); origen sigue clasificado",
+      "Resultado": "Pasa"
+    },
+    {
+      "Id": "E5",
+      "Escenario": "Traspaso en dos pasos entre punto y gestor",
+      "Resultado esperado": "El responsable cambia solo tras la aceptacion; una diferencia de peso mayor a 5 % genera alerta",
+      "Resultado obtenido": "En transito: responsable operador; tras aceptar: gestor; con 10 % de diferencia: 409 (discrepancia_requiere_decision), luego aceptado con observacion (10 %)",
+      "Resultado": "Pasa"
+    },
+    {
+      "Id": "E6",
+      "Escenario": "Consultar el historial de un lote despues de traspasar, dividir y mezclar",
+      "Resultado esperado": "Historial completo hasta el lote original, eventos en orden y kilos consistentes",
+      "Resultado obtenido": "11 eventos de 4 lotes (L-6031, L-6033, L-6034, L-6035); en orden; llega a L-6031; kilos 68 = 38 + 30",
+      "Resultado": "Pasa"
+    },
+    {
+      "Id": "E7",
+      "Escenario": "Intentar editar o borrar un evento por la API",
+      "Resultado esperado": "No existe ninguna ruta para editar o borrar eventos (solo alta)",
+      "Resultado obtenido": "PUT eventos: 404; PATCH eventos: 404; DELETE eventos: 404; DELETE lotes: 404; PUT lotes: 404; historial sin cambios: si",
+      "Resultado": "Pasa"
+    }
+  ]
+}

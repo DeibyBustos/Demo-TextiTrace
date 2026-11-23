@@ -1,0 +1,57 @@
+{
+  "ruta": "C:\\Users\\deiby\\Documents\\GitHub\\Demo-TextiTrace\\server\\textitrace.sqlite",
+  "lotes": 6019,
+  "eventos": 11440,
+  "traspasos": 1201,
+  "filas": [
+    {
+      "Regla": "R1 Division con balance de masa exacto",
+      "Revisados": 604,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R2 Mezcla suma los aportes de cada origen",
+      "Revisados": 604,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R3 Lote cerrado sin kilos",
+      "Revisados": 1812,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R4 Todo padre existe",
+      "Revisados": 1812,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R5 Todo lote tiene evento de origen",
+      "Revisados": 6019,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R6 No se crean kilos",
+      "Revisados": 1,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R7 Discrepancia de traspaso bien calculada",
+      "Revisados": 601,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    },
+    {
+      "Regla": "R8 Lote en transito con traspaso pendiente",
+      "Revisados": 600,
+      "Violaciones": 0,
+      "Resultado": "Cumple"
+    }
+  ],
+  "fallas": {}
+}
